@@ -204,7 +204,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 /* ---------- shared section shell ---------- */
 .sec { padding: clamp(72px, 11vh, 130px) clamp(20px, 5vw, 48px); }
 .shell { max-width: 1160px; margin: 0 auto; }
-.sec-head { margin-bottom: clamp(36px, 6vh, 64px); }
+.sec-head { margin-bottom: clamp(36px, 6vh, 64px); text-align: center; }
 .sec-head h2 {
   font-family: var(--font-title);
   font-size: clamp(30px, 5.4vw, 52px);
@@ -212,7 +212,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
   letter-spacing: -0.01em;
 }
 .sec-head .lede {
-  margin-top: 14px;
+  margin: 14px auto 0;
   font-size: clamp(14px, 1.8vw, 16px);
   color: var(--ink-soft);
   max-width: 42em;
@@ -228,14 +228,17 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 
 /* ---------- prologue ---------- */
 .prologue { background: var(--ash); }
-.strips { max-width: 760px; margin: 0 auto; }
+.strips { width: 50%; max-width: 760px; margin: 0 auto; }
 .strip {
+  display: block;
   width: 100%;
-  aspect-ratio: 27 / 200;
   height: auto;
   background: var(--ash-deep);
 }
 .strip + .strip { margin-top: 0; }
+@media (max-width: 720px) {
+  .strips { width: 100%; }
+}
 
 /* ---------- world ---------- */
 .world { padding: 0; background: var(--ash); }
@@ -248,12 +251,11 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 .world-body { padding: clamp(48px, 8vh, 90px) clamp(20px, 5vw, 48px) clamp(72px, 11vh, 130px); }
 .world-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: clamp(28px, 4vw, 56px);
   align-items: start;
+  text-align: center;
 }
-.world-grid .cell:nth-child(2) { margin-top: 42px; }
-.world-grid .cell:nth-child(3) { margin-top: 84px; }
 .cell h3 {
   font-family: var(--font-sub);
   font-size: clamp(19px, 2.4vw, 23px);
@@ -268,11 +270,12 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 }
 .cell p { font-size: 15px; color: var(--ink-soft); }
 .rumor {
-  margin-top: clamp(48px, 7vh, 80px);
+  margin: clamp(48px, 7vh, 80px) auto 0;
   max-width: 620px;
-  padding: 26px 30px;
-  border-left: 3px solid var(--glow);
-  background: linear-gradient(100deg, rgba(78, 164, 214, 0.10), rgba(27, 69, 132, 0.04) 70%, transparent);
+  padding: 28px 34px;
+  text-align: center;
+  border-top: 3px solid var(--glow);
+  background: linear-gradient(180deg, rgba(78, 164, 214, 0.10), rgba(27, 69, 132, 0.03) 70%, transparent);
 }
 .rumor p {
   font-family: var(--font-sub);
@@ -284,7 +287,6 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 
 @media (max-width: 880px) {
   .world-grid { grid-template-columns: 1fr; gap: 34px; }
-  .world-grid .cell:nth-child(2), .world-grid .cell:nth-child(3) { margin-top: 0; }
 }
 
 /* ---------- factions ---------- */
@@ -308,6 +310,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
   pointer-events: none;
 }
 .f-row.flip .f-img { order: 2; }
+.f-txt { text-align: center; }
 .f-txt h3 {
   font-family: var(--font-title);
   font-size: clamp(24px, 3.6vw, 34px);
@@ -319,7 +322,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
   color: var(--glow-deep);
   margin-bottom: 16px;
 }
-.f-txt p { font-size: 15px; color: var(--ink-soft); max-width: 46em; }
+.f-txt p { font-size: 15px; color: var(--ink-soft); max-width: 42em; margin-left: auto; margin-right: auto; }
 .f-txt p + p { margin-top: 12px; }
 .f-txt p b { font-weight: normal; color: var(--ink); }
 
@@ -331,7 +334,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 /* ---------- cast ---------- */
 .cast { background: var(--ash); overflow: hidden; }
 .lane-head {
-  display: flex; align-items: baseline; gap: 16px;
+  display: flex; align-items: baseline; justify-content: center; gap: 16px;
   margin-bottom: 20px;
 }
 .lane-head h3 {
@@ -369,7 +372,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
   user-select: none;
 }
 .card figcaption {
-  display: flex; align-items: baseline; gap: 8px;
+  display: flex; align-items: baseline; justify-content: center; gap: 8px;
   margin-top: 10px;
 }
 .card .name { font-family: var(--font-sub); font-size: 17px; }
@@ -391,6 +394,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 }
 .footer p { font-size: 13px; }
 .footer .ft-copy { margin-top: 4px; font-family: var(--font-sub); font-size: 13.5px; color: var(--glow); }
+.footer .ft-legal { margin-top: 20px; font-size: 12px; color: rgba(221, 221, 217, 0.5); letter-spacing: .02em; }
 </style>
 </head>
 <body>
@@ -436,7 +440,7 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
       <h2><span class="shard" aria-hidden="true"></span>프롤로그</h2>
       <p class="lede">모든 이야기가 시작되기 전, 어느 마법소녀의 마지막 하루.</p>
     </div>
-    <div class="strips rv">
+    <div class="strips">
       <img class="strip" src="https://poft.uk/cat/website/01.webp" alt="프롤로그 웹툰 1" loading="lazy" decoding="async">
       <img class="strip" src="https://poft.uk/cat/website/02.webp" alt="프롤로그 웹툰 2" loading="lazy" decoding="async">
     </div>
@@ -555,8 +559,8 @@ body.menu-open .mobile-menu { opacity: 1; pointer-events: auto; }
 
 <footer class="footer">
   <p class="ft-title">마법소녀는 오늘도 죽는다</p>
-  <p>AI 캐릭터 채팅 롤플레잉 몰입용 소개 사이트</p>
   <p class="ft-copy">싸우는 이유가 곧 사라지는 이유가 되니까.</p>
+  <p class="ft-legal">이 캐릭터챗은 제작자 가능충에게 저작권이 있습니다..</p>
 </footer>
 
 <script>
